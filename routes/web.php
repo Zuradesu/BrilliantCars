@@ -5,7 +5,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-
+// use Illuminate\Auth\Middleware\IsAdmin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

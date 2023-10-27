@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class Admin
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,16 +17,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->role == 'ADMIN') {
+        if ($request->user()->roles == 'ADMIN') {
             return $next($request);
         }
 
         return redirect()->route('front.index');
-
-        // if (auth()->check() && auth()->user()->roles == "ADMIN") {
-        //     return $next($request);
-        // }
-    
-        // return redirect('/');
     }
 }
