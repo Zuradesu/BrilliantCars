@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;  
+use App\Models\Brand;
+use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
+use App\Http\Requests\BrandRequest;
 
 class BrandController extends Controller
 {
