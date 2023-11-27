@@ -88,9 +88,11 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        //
+        return view('admin.brands.edit', [
+            'brand' => $brand,
+        ]);
     }
 
     /**
@@ -100,9 +102,14 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BrandRequest $request, Brand $brand)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name']) . '-' . Str::lower(Str::random(5));
+        
+        $brand->update($data);
+
+        return redirect()->route('admin.brands.index');
     }
 
     /**
@@ -111,8 +118,10 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+
+        return redirect()->route('admin.brands.index');
     }
 }
