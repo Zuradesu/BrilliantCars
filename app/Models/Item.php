@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Brand;
+use App\Models\Type;
+use App\Models\Booking;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\SoftDeletes;
