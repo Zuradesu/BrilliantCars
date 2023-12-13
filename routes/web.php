@@ -32,7 +32,7 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('brands',AdminBrandController::class);
     Route::resource('type',AdminTypeController::class);
-    Route::resource('items',AdminTypeController::class);
+    Route::resource('items',AdminItemController::class);
 });
 
 

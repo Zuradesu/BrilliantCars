@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ItemRequest extends FormRequest
@@ -13,7 +14,7 @@ class ItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,22 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    // Mendapatkan karakter pertama dari string
+                    $firstCharacter = mb_substr($value, 0, 1);
+
+                    // Memeriksa apakah karakter pertama adalah huruf kapital
+                    if (!ctype_upper($firstCharacter)) {
+                        $fail('The ' . $attribute . ' must start with a capital letter.');
+                    }
+                },
+            ],
+
+            
         ];
     }
 }
