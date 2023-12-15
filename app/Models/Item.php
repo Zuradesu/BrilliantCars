@@ -31,6 +31,7 @@ class Item extends Model
     ];
 
     // Get first photo from photos
+    
     public function getThumbnailAttribute()
     {
         // If photos exist

@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Exists;
 
-class ItemRequest extends FormRequest
+class ItemUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -52,8 +51,8 @@ class ItemRequest extends FormRequest
                 'integer',
                 'exists:brands,id',
             ],
-            'photos' => 'required|array',
-            'photos.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:4096',
+            'photos' => 'nullable|array',
+            'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:4096',
             'features' => 'nullable|string',
             'price' => 'required|numeric',
             'star' => 'nullable|numeric',

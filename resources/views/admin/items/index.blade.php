@@ -25,16 +25,20 @@
             name: 'id',
           },
           {
+            name: 'thumbnail',
+            data: 'thumbnail'
+          },
+          {
             data: 'name',
             name: 'name'
           },
           {
             data: 'type.name',
-            data: 'type.name'
+            name: 'type.name'
           },
           {
             data: 'brand.name',
-            data: 'brand.name'
+            name: 'brand.name'
           },
           {
             data: 'action',
@@ -63,6 +67,7 @@
                         <thead>
                             <tr>
                                 <th style="max-width: 1%">ID</th>
+                                <th>Thumbnail</th>
                                 <th>Nama</th>
                                 <th>Type</th>
                                 <th>Brand</th>
