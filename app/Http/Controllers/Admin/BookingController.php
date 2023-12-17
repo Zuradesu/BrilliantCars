@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Item;
 use App\Models\Brand;
+use App\Models\User;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -38,7 +39,7 @@ class BookingController extends Controller
                                     ' . method_field('delete') . csrf_field() . '
                             </form>';
                     })
-                    ->rawColumns(['action', 'thumbnail'])
+                    ->rawColumns(['action'])
                     ->make();
             }
         
